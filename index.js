@@ -86,27 +86,15 @@ const managerPrompt = () => {
 const menuPrompt = () => {
 	return inquirer.prompt([
 		{
-			type: "input",
-			name: "name",
-			message: "What is the manager's name?",
-		},
-		{
 			type: "list",
-			name: "department",
-			message: "Which department does the manager work in?",
-			choices: ["Sales", "Marketing", "Engineering", "Operations"],
-		},
-		{
-			type: "number",
-			name: "yearsOfExperience",
-			message: "How many years of management experience does the manager have?",
-			validate: function (value) {
-				var valid = !isNaN(parseFloat(value));
-				return valid || "Please enter a number";
-			},
+			name: "role",
+			message: "Please select your role?",
+			choices: ["Manager", "Engineer", "Intern"],
 		},
 	]);
 };
+
+
 
 // function to initialize program
 // function init() {
