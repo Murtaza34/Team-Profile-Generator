@@ -72,12 +72,7 @@ const managerPrompt = () => {
 		])
 
 		.then((answers) => {
-			const manager = new Manager(
-				answers.name,
-				answers.id,
-				answers.email,
-				answers.officeNumber
-			);
+			const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
 			teamMembers.push(manager);
 			menuPrompt();
 		});
@@ -93,8 +88,6 @@ const menuPrompt = () => {
 		},
 	]);
 };
-
-
 
 // function to initialize program
 // function init() {
