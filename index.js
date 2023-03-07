@@ -15,78 +15,79 @@ const teamMembers = [];
 
 // User starts with managers details
 const managerPrompt = () => {
-	return inquirer
-		.prompt([
-			{
-				type: "input",
-				name: "name",
-				message: "Please enter your name:",
-				validate: function (input) {
-					if (input === "") {
-						return "Your name cannot be blank!";
-					} else {
-						return true;
-					}
-				},
-			},
-			{
-				type: "input",
-				name: "id",
-				message: "Please enter your ID:",
-				validate: function (input) {
-					if (isNaN(input)) {
-						return "Your ID must be a number!";
-					} else if (input.trim() === "") {
-						return "Your ID cannot be blank!";
-					} else {
-						return true;
-					}
-				},
-			},
-			{
-				type: "input",
-				name: "email",
-				message: "Please enter your email address:",
-				validate: function (input) {
-					if (input === "") {
-						return "Your email cannot be blank!";
-					} else {
-						return true;
-					}
-				},
-			},
-			{
-				type: "input",
-				name: "officeNumber",
-				message: "Please enter your office number:",
-				validate: function (input) {
-					if (isNaN(input)) {
-						return "Office number must be a number!";
-					} else if (input.trim() === "") {
-						return "Office number cannot be blank!";
-					} else {
-						return true;
-					}
-				},
-			},
-		])
+  return inquirer.prompt([
+    {
+      type: "input",
+      name: "name",
+      message: "Please enter your name:",
+      validate: function (input) {
+        if (input === "") {
+          return "Your name cannot be blank!";
+        } else {
+          return true;
+        }
+      },
+    },
+    {
+      type: "input",
+      name: "id",
+      message: "Please enter your ID number:",
+      validate: function (input) {
+        if (isNaN(input)) {
+          return "Your ID must be a number!";
+        } else if (input.trim() === ""){;
+          return "ID number cannot be blank!";
+        } else {
+          return true;
+        }
+      },
+    },
+    {
+      type: "input",
+      name: "email",
+      message: "Please enter your email address:",
+      validate: function (input) {
+        if (input === "") {
+          return "Email address cannot be blank!";
+        } else {
+          return true;
+        }
+      },
+    },
+    {
+      type: "input",
+      name: "officeNumber",
+      message: "Please enter your office number:",
+      validate: function (input) {
+        if (isNaN(input)) {
+          return "Office number must be a number!";
+        } else if (input.trim() === ""){;
+          return "Office number cannot be blank!";
+        } else {
+          return true;
+        }
+      },
+    },
+  ])
+  .then((answers) => {
+    const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
+    teamMembers.push(manager)
+  })
 
-		.then((answers) => {
-			const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
-			teamMembers.push(manager);
-			menuPrompt();
-		});
 };
 
+     
+     
+
 const menuPrompt = () => {
-	return inquirer.prompt([
-		{
-			type: "list",
-			name: "role",
-			message: "Please select your role?",
-			choices: ["Manager", "Engineer", "Intern"],
-		},
-	]);
+  return inquirer.prompt([
+    {
+      type: "list",
+      name: "role",
+      message: "Please select your role?",
+      choices: ["Manager", "Engineer", "Intern"],
+    },
+  ]);
 };
 
 // function to initialize program
