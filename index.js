@@ -188,7 +188,7 @@ const addIntern = () => {
     {
       type: "input",
       name: "name",
-      message: "Please enter your name:",
+      message: "Please enter your First and Last name:",
       validate: function (input) {
         if (input === "") {
           return "Your name cannot be left blank!";
