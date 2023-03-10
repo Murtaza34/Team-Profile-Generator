@@ -6,7 +6,7 @@ This application is a great tool for anyone looking to easily create a professio
 
 ### Preview
 
-Below Image is an example  generated using the application.
+Below Image is an [example](./output/team.html) generated using the application.
 
 ![App Screenshot](./Assets/frame_generic_light.png)
 
